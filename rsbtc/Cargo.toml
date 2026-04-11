@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["compiler_examples","hello_world",
+    "lib",
+    "miner",
+    "node",
+    "wallet"
+]

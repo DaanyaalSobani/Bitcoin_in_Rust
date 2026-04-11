@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug hello_world",
+            "cargo": {
+                "args": ["build", "--bin=hello_world", "--manifest-path=rsbtc/hello_world/Cargo.toml"],
+                "filter": { "name": "hello_world", "kind": "bin" }
+            },
+            "args": ["reverse", "Hello World"],
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug compiler_examples",
+            "cargo": {
+                "args": ["build", "--bin=compiler_examples", "--manifest-path=rsbtc/compiler_examples/Cargo.toml"],
+                "filter": { "name": "compiler_examples", "kind": "bin" }
+            },
+            "args": [],
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug miner",
+            "cargo": {
+                "args": ["build", "--bin=miner", "--manifest-path=rsbtc/miner/Cargo.toml"],
+                "filter": { "name": "miner", "kind": "bin" }
+            },
+            "args": [],
+            "cwd": "${workspaceRoot}"
+        }
+    ]
+}
