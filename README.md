@@ -8,15 +8,19 @@ The goal is to learn Rust and Bitcoin internals at the same time by implementing
 
 ```
 rsbtc/
-  lib/                  shared library — Bitcoin types and logic
-  miner/                block miner binary
-  node/                 P2P node binary
-  wallet/               wallet binary
-  hello_world/          early Rust exercise — CLI text transformer
-  compiler_examples/    Rust language experiments — ownership, borrowing, generics
+  lib/                          shared library — Bitcoin types and logic
+  miner/                        block miner binary
+  node/                         P2P node binary
+  wallet/                       wallet binary
+  practice/
+    hello_world/                CLI text transformer — early Rust exercise
+    compiler_examples/          ownership, borrowing, iterators, generics
+    oop_examples/               OOP in Rust — traits, dispatch, visibility
+notes/                          reference notes per chapter
+exercises/                      practice exercises with solutions
 ```
 
-`hello_world` and `compiler_examples` are learning exercises from the early chapters, not part of the Bitcoin implementation itself.
+The `practice/` crates are learning exercises from the early chapters, not part of the Bitcoin implementation itself.
 
 ## Installation
 
@@ -62,7 +66,7 @@ cargo run --bin bench --release                      # run a specific binary in 
 cargo run --bin generics                             # run a specific binary in debug mode
 
 # 📁 any (from repo root)
-cargo run --manifest-path rsbtc/hello_world/Cargo.toml -- reverse "Hello World"
+cargo run --manifest-path rsbtc/practice/hello_world/Cargo.toml -- reverse "Hello World"
 ```
 
 ### Checking & Testing
@@ -105,7 +109,7 @@ cargo run -p hello_world -- leet "Satoshi Nakamoto"
 cargo run -p hello_world -- acronym "unspent transaction output"
 cargo run --bin bench --release     # iterator vs loop benchmark
 cargo run --bin generics            # generics and traits demo
-python3 compiler_examples/bench.py  # Python equivalent benchmark
+python3 practice/compiler_examples/bench.py  # Python equivalent benchmark
 ```
 
 ## Progress

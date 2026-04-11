@@ -34,6 +34,6 @@ fn main() {
             mut_ref.push_str(", the cryptocurrency");
             // ↑ use the mutable borrow
         } // <- ro_ref goes out of scope here  ┐
-        //                                   ├ these refs can't coexist,
-    } // <- mut_ref goes out of scope here ┘ hence the issue
+        //                                     ├ these refs can't coexist,
+    } // <- mut_ref goes out of scope here     ┘ hence the issue
 } // <- bitcoin goes out of scope her
