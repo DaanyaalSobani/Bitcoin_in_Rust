@@ -8,5 +8,7 @@ members = [
     "practice/compiler_examples",
     "practice/hello_world",
     "practice/immutability",
+    "practice/retain_examples",
     "practice/oop_examples",
+    "practice/closure_factory",
 ]

@@ -71,6 +71,49 @@ hash bytes — which would break proof-of-work comparison in `matches_target`.
 
 ---
 
+## Converting U256 back to bytes — `to_little_endian`
+
+Reference: `lib/src/sha256.rs` — `Hash::as_bytes()`
+
+The reverse operation also changed between textbook and `uint` 0.10.
+
+**Textbook version (old API) — buffer out-parameter:**
+```rust
+pub fn as_bytes(&self) -> [u8; 32] {
+    let mut bytes: Vec<u8> = vec![0; 32];  // allocate buffer manually
+    self.0.to_little_endian(&mut bytes);    // write into it via &mut
+    bytes.as_slice().try_into().unwrap()    // convert slice → [u8; 32]
+}
+```
+The old `to_little_endian` took a `&mut [u8]` buffer and wrote into it — the same
+out-parameter via `&mut` pattern seen in `ciborium::into_writer`.
+
+**`uint` 0.10 version — returns the array directly:**
+
+Source: `~/.cargo/registry/.../uint-0.10.0/src/uint.rs`, line 766:
+```rust
+pub fn to_little_endian(&self) -> [u8; $n_words * 8] {
+    let mut bytes = [0u8; $n_words * 8];
+    self.write_as_little_endian(&mut bytes);
+    bytes
+}
+```
+`$n_words * 8 = 4 * 8 = 32` for `U256` — so it always returns `[u8; 32]`.
+The buffer allocation still happens, just inside the method now instead of in your code.
+
+**Fixed version:**
+```rust
+pub fn as_bytes(&self) -> [u8; 32] {
+    self.0.to_little_endian()  // returns [u8; 32] directly
+}
+```
+
+The behaviour is identical — it's a pure API ergonomics change between versions.
+The old API also had `write_as_little_endian(&mut [u8])` if you wanted the buffer style,
+and `uint` 0.10 still has `write_as_little_endian` for that (line 773).
+
+---
+
 ## Why didn't `U256` just implement `From<[u8; 32]>`?
 
 Because `From<[u8; 32]>` would be ambiguous — it would have to pick an endianness
