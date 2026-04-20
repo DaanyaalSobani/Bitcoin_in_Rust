@@ -1,6 +1,7 @@
 # Building Bitcoin in Rust — Notes & Code
 
-Personal notes and working code from the textbook **"Building Bitcoin in Rust"**.
+Personal notes and working code from the textbook **[Building Bitcoin in Rust](https://braiins.com/books/building-bitcoin-in-rust)** by Braiins.
+The companion source repository is at [braiins/build-bitcoin-in-rust](https://github.com/braiins/build-bitcoin-in-rust).
 
 The goal is to learn Rust and Bitcoin internals at the same time by implementing a Bitcoin node from scratch.
 
@@ -117,8 +118,10 @@ python3 practice/compiler_examples/bench.py  # Python equivalent benchmark
 - [x] Rust basics — ownership, borrowing, references
 - [x] Iterators and closures
 - [x] Generics and traits
-- [ ] Bitcoin data structures (Block, Transaction, UTXO)
-- [ ] Hashing (SHA-256, RIPEMD-160)
+- [x] Hashing — SHA-256 (`sha256.rs`)
+- [x] Cryptography — ECDSA keys and signatures (`crypto.rs`)
+- [x] Serialisation — `Saveable` trait with CBOR via ciborium (`util.rs`)
+- [x] Bitcoin data structures — `Transaction`, `Block`, `Blockchain` types with save/load binaries
 - [ ] Mining
 - [ ] P2P networking
 - [ ] Wallet and key management
