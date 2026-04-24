@@ -1,3 +1,4 @@
+#![allow(warnings)]
 // // in serious Rust, you'd use &str for flexibility,
 // // as &String can convert to it automatically
 // fn print_my_string(string: &String) {

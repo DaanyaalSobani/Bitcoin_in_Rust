@@ -1,3 +1,4 @@
+#![allow(warnings)]
 fn main() {
     example_1_immutable_by_default();
     example_2_mut_keyword();

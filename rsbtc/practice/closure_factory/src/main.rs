@@ -1,3 +1,4 @@
+#![allow(warnings)]
 fn main() {
     example_1_basic_factory();
     example_2_factory_with_mutable_capture();

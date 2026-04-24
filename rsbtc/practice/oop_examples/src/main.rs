@@ -1,3 +1,4 @@
+#![allow(warnings)]
 mod dispatch;
 mod practice;
 mod structs;

@@ -1,3 +1,4 @@
+#![allow(warnings)]
 use std::hint::black_box;
 use std::time::Instant;
 

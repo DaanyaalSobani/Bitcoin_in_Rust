@@ -1,3 +1,4 @@
+#![allow(warnings)]
 // fn print_my_string(string: &String){
 //     println!("{}",string);
 // }

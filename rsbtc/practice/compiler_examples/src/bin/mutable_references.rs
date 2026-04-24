@@ -1,3 +1,4 @@
+#![allow(warnings)]
 // fn main() {
 //     let mut bitcoin = String::from("bitcoin");
 //     // Rust is actually pretty smart,
@@ -20,20 +21,23 @@
 //     mut_ref.push_str(", the cryptocurrency");
 //     // ↑ use the mutable borrow
 // }
+// fn main() {
+//     'bitcoin_lifetime: {
+//         let mut bitcoin = String::from("bitcoin");
+//         'mut_ref_lifetime: {
+//             let mut_ref = &mut bitcoin;
+//             // ↑ borrow bitcoin mutably
+//             'ro_ref_lifetime: {
+//                 let ro_ref = &bitcoin;
+//                 // ↑ borrow bitcoin immutably
+//             }
+//             // println!("{}", ro_ref); // <- use the immutable borrow
+//             mut_ref.push_str(", the cryptocurrency");
+//             // ↑ use the mutable borrow
+//         } // <- ro_ref goes out of scope here  ┐
+//         //                                     ├ these refs can't coexist,
+//     } // <- mut_ref goes out of scope here     ┘ hence the issue
+// } // <- bitcoin goes out of scope her
 fn main() {
-    'bitcoin_lifetime: {
-        let mut bitcoin = String::from("bitcoin");
-        'mut_ref_lifetime: {
-            let mut_ref = &mut bitcoin;
-            // ↑ borrow bitcoin mutably
-            'ro_ref_lifetime: {
-                let ro_ref = &bitcoin;
-                // ↑ borrow bitcoin immutably
-            }
-            println!("{}", ro_ref); // <- use the immutable borrow
-            mut_ref.push_str(", the cryptocurrency");
-            // ↑ use the mutable borrow
-        } // <- ro_ref goes out of scope here  ┐
-        //                                     ├ these refs can't coexist,
-    } // <- mut_ref goes out of scope here     ┘ hence the issue
-} // <- bitcoin goes out of scope her
+    println!("hello");
+}

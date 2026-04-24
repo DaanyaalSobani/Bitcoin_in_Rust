@@ -1,3 +1,4 @@
+#![allow(warnings)]
 fn main() {
     example_1_scalars_even();
     example_2_scalars_dedup();
