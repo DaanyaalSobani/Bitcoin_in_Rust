@@ -17,6 +17,7 @@ rsbtc/
     hello_world/                CLI text transformer — early Rust exercise
     compiler_examples/          ownership, borrowing, iterators, generics
     oop_examples/               OOP in Rust — traits, dispatch, visibility
+    async_examples/             async/await and tokio exercises
 notes/                          reference notes per chapter
 exercises/                      practice exercises with solutions
 ```
@@ -32,8 +33,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 **2. Clone the repo:**
 ```bash
-git clone https://github.com/DaanyaalSobani/Bitcoin_in_Rust.git
-cd Bitcoin_in_Rust
+git clone https://github.com/DaanyaalSobani/bitcoin-in-rust.git
+cd bitcoin-in-rust
 ```
 
 **3. Open in VS Code** — it will prompt to install the recommended extensions:
@@ -122,6 +123,7 @@ python3 practice/compiler_examples/bench.py  # Python equivalent benchmark
 - [x] Cryptography — ECDSA keys and signatures (`crypto.rs`)
 - [x] Serialisation — `Saveable` trait with CBOR via ciborium (`util.rs`)
 - [x] Bitcoin data structures — `Transaction`, `Block`, `Blockchain` types with save/load binaries
+- [x] Async/await — tokio runtime, async examples
 - [ ] Mining
-- [ ] P2P networking
-- [ ] Wallet and key management
+- [ ] P2P networking — `network.rs` in progress
+- [ ] Wallet and key management — `key_gen.rs` in progress
