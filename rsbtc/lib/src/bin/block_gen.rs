@@ -3,7 +3,7 @@ use btclib::sha256::Hash;
 use btclib::types::{Block, BlockHeader, Transaction, TransactionOutput};
 use btclib::util::{MerkleRoot, Saveable};
 use chrono::Utc;
-use ecdsa::signature::rand_core::block;
+// use ecdsa::signature::rand_core::block;
 use std::env;
 use std::process::exit;
 use uuid::Uuid;
